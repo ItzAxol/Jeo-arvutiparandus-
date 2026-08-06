@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+body {
+  background: #0f172a;
+}
+
+html.light body {
+  background: #f1f5f9;
+}
+
+html.light #content {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+html.light #content img,
+html.light #content picture,
+html.light #content svg,
+html.light #content video {
+  filter: invert(1) hue-rotate(180deg);
+}
