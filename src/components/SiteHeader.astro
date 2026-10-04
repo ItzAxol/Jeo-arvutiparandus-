@@ -1,0 +1,37 @@
+---
+interface Props {
+  current: '/' | '/3dprinting';
+}
+
+const { current } = Astro.props;
+
+const links = [
+  { href: '/', label: 'Arvutiparandus' },
+  { href: '/3dprinting', label: '3D Printimine' },
+] as const;
+---
+<header class="sticky top-0 z-40 border-b border-slate-800 bg-slate-900/80 backdrop-blur">
+  <nav class="mx-auto flex max-w-6xl flex-wrap items-center gap-x-6 gap-y-2 px-4 py-4">
+    <a href="/" class="text-lg font-bold text-gray-100 transition hover:text-blue-400">Minifirma JEO</a>
+    <ul class="flex flex-wrap items-center gap-2">
+      {
+        links.map(({ href, label }) => (
+          <li>
+            <a
+              href={href}
+              aria-current={href === current ? 'page' : undefined}
+              class:list={[
+                'rounded-full px-4 py-2 text-sm font-medium transition',
+                href === current
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-slate-800 text-gray-300 shadow-sm shadow-black/20 hover:bg-blue-600 hover:text-white',
+              ]}
+            >
+              {label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>

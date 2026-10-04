@@ -2,10 +2,13 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 
+import sentry from '@sentry/astro';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://jeoparandus.eu',
   base: '/',
+
   vite: {
     plugins: [tailwindcss()],
       server: {
@@ -16,4 +19,6 @@ export default defineConfig({
     ],
   },
   },
+
+  integrations: [sentry()],
 });

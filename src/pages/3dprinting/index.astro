@@ -1,0 +1,83 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Contact from '../../components/Contact.astro';
+import Card from '../../components/card/Card.astro';
+import CardContent from '../../components/card/CardContent.astro';
+import CardDescription from '../../components/card/CardDescription.astro';
+import CardHeader from '../../components/card/CardHeader.astro';
+import CardMedia from '../../components/card/CardMedia.astro';
+import CardTitle from '../../components/card/CardTitle.astro';
+import { prints } from '../../data/prints';
+---
+<Layout
+  current="/3dprinting"
+  title="JEO 3D-Printimine"
+  description="3D-prinditud tooted: mänguasad, võtmehõljad ja juhtmekanalid. Helme, Eesti."
+>
+  <section class="bg-slate-900 py-16">
+    <div class="mx-auto max-w-6xl px-4">
+      <h1 class="mb-4 text-center text-3xl font-bold text-gray-100">JEO 3D-Printimine</h1>
+      <p class="mx-auto mb-12 max-w-2xl text-center text-gray-400">
+        Valmistame 3D-prinditud tooteid. Allpool on hetkel saadaval olevad tooted ja nende hinnad.
+      </p>
+
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          prints.map((print) => (
+            <Card>
+              <CardMedia src={print.image} alt={print.name} className="mb-5" />
+              <CardHeader>
+                <CardTitle>{print.name}</CardTitle>
+                <CardDescription>{print.description}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <span class="text-2xl font-bold text-blue-400">{print.price}€</span>
+              </CardContent>
+            </Card>
+          ))
+        }
+      </div>
+      <p class="mx-auto mt-12 mb-8 max-w-2xl text-center text-gray-400">
+        Kõik pildid on illustratiivsed. Toote lõplik välimus võib erineda pildil olevast. Kui soovid tellida toodet, mida me ei prindi, saada meile e-mail või helista.
+      </p>
+      
+      <!-- Custom Prints-->
+      <div id="parandus">
+        <h3 class="mb-6 flex items-center gap-2 text-xl font-semibold text-gray-100">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5 12 2.25 3 7.5M21 7.5 12 12.75M21 7.5v9L12 21.75M3 7.5 12 12.75M3 7.5v9L12 21.75M12 12.75v9" /></svg>
+          Eriprindid
+        </h3>
+        <div class="rounded-xl bg-slate-800 p-6 shadow-sm shadow-black/20">
+          <h4 class="mb-4 text-lg font-medium text-gray-100">Eriprintide hinnad</h4>
+          <p class="mb-6 text-sm text-gray-400">Keerukamad ja suuremad mudelid võtavad rohkem aega ja materjali, mistõttu on hind kõrgem.</p>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-sm">
+              <thead>
+                <tr class="border-b border-gray-600">
+                  <th class="pb-3 font-medium text-gray-200">Detaili keerukus</th>
+                  <th class="pb-3 font-medium text-gray-200">Printimistasu + detail</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-700">
+                <tr>
+                  <td class="py-3 text-white">Lihtne</td>
+                  <td class="py-3 font-semibold text-white">alates 2.99€</td>
+                </tr>
+                <tr>
+                  <td class="py-3 text-white">Keskmine</td>
+                  <td class="py-3 font-semibold text-white">alates 7.99€</td>
+                </tr>
+                <tr>
+                  <td class="py-3 text-white">Keeruline</td>
+                  <td class="py-3 font-semibold text-white">alates 14.99€</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+  <Contact />
+</Layout>
