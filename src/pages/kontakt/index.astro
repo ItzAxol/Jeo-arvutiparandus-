@@ -1,0 +1,377 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ContactDetails from '../../components/ContactDetails.astro';
+
+const topics = [
+  {
+    value: '3d-tooted',
+    label: '3D-prinditud tooted',
+    description: 'Valmis tooted meie valikust',
+    icon: 'M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z',
+  },
+  {
+    value: 'eriprint',
+    label: 'Eriprint',
+    description: 'Sinu enda mudel või idee',
+    icon: 'M21 7.5 12 2.25 3 7.5M21 7.5 12 12.75M21 7.5v9L12 21.75M3 7.5 12 12.75M3 7.5v9L12 21.75M12 12.75v9',
+  },
+  {
+    value: 'arvutiparandus',
+    label: 'Arvutiparandus',
+    description: 'Remont, hooldus, tarkvara',
+    icon: 'M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437 1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008Z',
+  },
+  {
+    value: 'muu',
+    label: 'Muu',
+    description: 'Midagi muud või ei ole kindel',
+    icon: 'M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z',
+  },
+] as const;
+---
+
+<Layout
+  current="/kontakt"
+  title="Kontakt – JEO Arvutiparandus"
+  description="Küsi pakkumist või esita küsimus: 3D-printimine, eriprindid ja arvutiparandus Helmes. Vastame esimesel võimalusel."
+>
+  <section class="bg-slate-900 py-16">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="mx-auto max-w-2xl text-center">
+        <h1 class="mb-4 text-3xl font-bold text-gray-100">Võta meiega ühendust</h1>
+        <p class="text-gray-400">
+          Küsi pakkumist, esita küsimus või räägi meile oma ideest. Vastame esimesel võimalusel, tavaliselt ühe tööpäeva jooksul.
+        </p>
+      </div>
+
+      <div class="mt-12 grid gap-8 lg:grid-cols-[1.5fr_1fr]">
+        <form
+          id="contact-form"
+          class="rounded-xl bg-slate-800 p-6 shadow-sm shadow-black/20 sm:p-8"
+          action="#"
+          method="post"
+        >
+          <h2 class="mb-6 text-xl font-semibold text-gray-100">Saada päring</h2>
+
+          <div class="grid gap-5 sm:grid-cols-2">
+            <div>
+              <label for="name" class="mb-2 block text-sm font-medium text-gray-200">Nimi</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                maxlength="100"
+                autocomplete="name"
+                placeholder="Sinu nimi"
+                class="w-full rounded-lg border border-slate-600 bg-slate-900 px-4 py-3 text-gray-100 placeholder:text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/40"
+              />
+            </div>
+
+            <div>
+              <label for="email" class="mb-2 block text-sm font-medium text-gray-200">E-post</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                maxlength="200"
+                autocomplete="email"
+                placeholder="nimi@näide.ee"
+                class="w-full rounded-lg border border-slate-600 bg-slate-900 px-4 py-3 text-gray-100 placeholder:text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/40"
+              />
+            </div>
+          </div>
+
+          <fieldset class="mt-6">
+            <legend class="mb-3 text-sm font-medium text-gray-200">Millega saame aidata?</legend>
+            <div class="grid gap-3 sm:grid-cols-2">
+              {
+                topics.map((topic, index) => (
+                  <label class="cursor-pointer">
+                    <input
+                      type="radio"
+                      name="topic"
+                      value={topic.value}
+                      required={index === 0}
+                      class="peer sr-only"
+                    />
+                    <span class="flex h-full items-start gap-3 rounded-lg border border-slate-600 bg-slate-900 p-4 transition peer-checked:border-blue-500 peer-checked:bg-blue-600/10 peer-focus-visible:ring-2 peer-focus-visible:ring-blue-500/60 hover:border-slate-500">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="mt-0.5 h-5 w-5 shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d={topic.icon} />
+                      </svg>
+                      <span>
+                        <span class="block text-sm font-medium text-gray-100">{topic.label}</span>
+                        <span class="mt-0.5 block text-xs text-gray-400">{topic.description}</span>
+                      </span>
+                    </span>
+                  </label>
+                ))
+              }
+            </div>
+          </fieldset>
+
+          <div id="other-field" class="mt-4" hidden>
+            <label for="other" class="mb-2 block text-sm font-medium text-gray-200">Täpsusta</label>
+            <input
+              id="other"
+              name="other"
+              type="text"
+              maxlength="150"
+              placeholder="Kirjelda lühidalt, millega on tegu"
+              class="w-full rounded-lg border border-slate-600 bg-slate-900 px-4 py-3 text-gray-100 placeholder:text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/40"
+            />
+          </div>
+
+          <div class="mt-6">
+            <label for="message" class="mb-2 block text-sm font-medium text-gray-200">Sõnum</label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              maxlength="2000"
+              rows="6"
+              placeholder="Kirjelda lühidalt, mida vajad. Eriprindi puhul lisa soovitud mõõdud või viide mudelile."
+              class="w-full resize-y rounded-lg border border-slate-600 bg-slate-900 px-4 py-3 text-gray-100 placeholder:text-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/40"
+            ></textarea>
+            <p class="mt-1 text-right text-xs text-gray-400"><span id="message-count">0</span>/2000</p>
+          </div>
+
+          <!-- Honeypot: hidden from real users, bots tend to fill it -->
+          <div class="hidden" aria-hidden="true">
+            <label for="website">Veebileht</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <div class="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <button
+              type="submit"
+              id="submit-button"
+              class="inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-500 disabled:cursor-not-allowed disabled:opacity-60"
+            >
+              <svg id="submit-spinner" xmlns="http://www.w3.org/2000/svg" class="hidden h-4 w-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 0 1 8-8V0C5.373 0 0 5.373 0 12h4Z"></path>
+              </svg>
+              <span id="submit-label">Saada päring</span>
+            </button>
+            <div class="max-w-xs space-y-1 text-xs text-gray-400">
+              <p>Tunnis saab saata kuni 2 päringut.</p>
+            </div>
+          </div>
+
+          <p id="form-status" role="status" aria-live="polite" class="mt-4 rounded-lg border px-4 py-3 text-sm" hidden></p>
+        </form>
+
+        <aside class="space-y-6">
+          <div class="rounded-xl bg-slate-800 p-6 shadow-sm shadow-black/20">
+            <h2 class="mb-4 text-lg font-semibold text-gray-100">Kontaktandmed</h2>
+            <ContactDetails />
+          </div>
+
+          <div class="rounded-xl border border-slate-700 p-6 text-sm text-gray-400">
+            <p class="mb-2 font-medium text-gray-200">Kiirem vastus?</p>
+            <p>
+              Helista <a href="tel:+37256271521" class="text-blue-400 underline underline-offset-4 transition hover:text-blue-300">+372 5627 1521</a>
+              või kirjuta <a href="mailto:mfjeoparandus@gmail.com" class="text-blue-400 underline underline-offset-4 transition hover:text-blue-300">mfjeoparandus@gmail.com</a>.
+              Avatud kokkuleppel ka väljaspool tavapärast tööaega.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const DISCORD_WEBHOOK_URL =
+    'https://discord.com/api/webhooks/1564576186976313404/zP-LwqN_579WPoIgrb0jM4vBtIgIa7MLaQb4WA6xp8vfLxlQvhXMGqrxnaZyv3p_Jbi7';
+
+  const TOPIC_LABELS = {
+    '3d-tooted': '3D-prinditud tooted',
+    eriprint: 'Eriprint',
+    arvutiparandus: 'Arvutiparandus',
+    muu: 'Muu',
+  };
+
+  const RATE_LIMIT_KEY = 'jeo-contact-submissions';
+  const RATE_LIMIT_MAX = 2;
+  const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000;
+
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+  const submitButton = document.getElementById('submit-button');
+  const submitLabel = document.getElementById('submit-label');
+  const spinner = document.getElementById('submit-spinner');
+  const messageInput = document.getElementById('message');
+  const messageCount = document.getElementById('message-count');
+  const otherField = document.getElementById('other-field');
+  const otherInput = document.getElementById('other');
+
+  function showStatus(type, text) {
+    if (!status) return;
+    status.textContent = text;
+    status.className =
+      'mt-4 rounded-lg border px-4 py-3 text-sm ' +
+      (type === 'success'
+        ? 'border-green-700 bg-green-900/40 text-green-300'
+        : 'border-red-700 bg-red-900/40 text-red-300');
+    status.hidden = false;
+  }
+
+  function setSending(sending) {
+    if (!submitButton) return;
+    submitButton.disabled = sending;
+    submitLabel.textContent = sending ? 'Saadan...' : 'Saada päring';
+    spinner.classList.toggle('hidden', !sending);
+  }
+
+  function getRecentSubmissions() {
+    try {
+      const stored = JSON.parse(localStorage.getItem(RATE_LIMIT_KEY) ?? '[]');
+      if (!Array.isArray(stored)) return [];
+      const now = Date.now();
+      return stored.filter((timestamp) => typeof timestamp === 'number' && now - timestamp < RATE_LIMIT_WINDOW_MS);
+    } catch {
+      return [];
+    }
+  }
+
+  function recordSubmission() {
+    try {
+      const recent = getRecentSubmissions();
+      recent.push(Date.now());
+      localStorage.setItem(RATE_LIMIT_KEY, JSON.stringify(recent));
+    } catch {
+      // localStorage unavailable (private mode, blocked cookies) skip limiting
+    }
+  }
+
+  messageInput?.addEventListener('input', () => {
+    messageCount.textContent = String(messageInput.value.length);
+  });
+
+  // clear stale success/error text as soon as the user edits the form
+  form?.addEventListener('input', () => {
+    if (status) status.hidden = true;
+  });
+
+  // "Muu" needs a short explanation, so reveal an extra input only for that topic
+  function updateOtherField() {
+    const isOther = form?.querySelector('input[name="topic"]:checked')?.value === 'muu';
+    if (!otherField || !otherInput) return;
+    otherField.hidden = !isOther;
+    if (!isOther) otherInput.value = '';
+  }
+
+  form?.querySelectorAll('input[name="topic"]').forEach((radio) => {
+    radio.addEventListener('change', updateOtherField);
+  });
+
+  // prefill topic from links like /kontakt?teenus=eriprint
+  const requestedTopic = new URLSearchParams(window.location.search).get('teenus');
+  if (requestedTopic) {
+    const radio = form?.querySelector(`input[name="topic"][value="${CSS.escape(requestedTopic)}"]`);
+    if (radio) radio.checked = true;
+  }
+
+  updateOtherField();
+
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const data = new FormData(form);
+
+    // silently pretend everything is fine for bots
+    if (String(data.get('website') ?? '').trim() !== '') {
+      showStatus('success', 'Aitäh! Sinu päring on saadetud.');
+      form.reset();
+      updateOtherField();
+      return;
+    }
+
+    const name = String(data.get('name') ?? '').trim();
+    const email = String(data.get('email') ?? '').trim();
+    const topic = String(data.get('topic') ?? '');
+    const other = String(data.get('other') ?? '').trim();
+    const message = String(data.get('message') ?? '').trim();
+
+    if (!name || !email || !topic || !message) {
+      showStatus('error', 'Palun täida kõik väljad.');
+      return;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showStatus('error', 'Palun sisesta korrektne e-posti aadress.');
+      return;
+    }
+
+    if (topic === 'muu' && !other) {
+      showStatus('error', 'Palun kirjelda lühidalt, millega on tegu.');
+      otherInput?.focus();
+      return;
+    }
+
+    const recent = getRecentSubmissions();
+    if (recent.length >= RATE_LIMIT_MAX) {
+      const minutesLeft = Math.max(
+        1,
+        Math.ceil((Math.min(...recent) + RATE_LIMIT_WINDOW_MS - Date.now()) / 60000)
+      );
+      showStatus(
+        'error',
+        `Oled tunnis juba ${RATE_LIMIT_MAX} päringut saatnud. Proovi uuesti ${minutesLeft} minuti pärast või kirjuta meile aadressil mfjeoparandus@gmail.com.`
+      );
+      return;
+    }
+
+    setSending(true);
+    status.hidden = true;
+
+    const fields = [
+      { name: 'Nimi', value: name, inline: true },
+      { name: 'E-post', value: email, inline: true },
+      { name: 'Teema', value: TOPIC_LABELS[topic] ?? topic, inline: false },
+    ];
+    if (other) fields.push({ name: 'Muu põhjus', value: other });
+    fields.push({ name: 'Sõnum', value: message.slice(0, 1024) });
+
+    const payload = {
+      username: 'JEO Veebileht',
+      allowed_mentions: { parse: [] },
+      embeds: [
+        {
+          title: 'Uus päring veebilehelt',
+          color: 0x3b82f6,
+          fields,
+          timestamp: new Date().toISOString(),
+          footer: { text: 'jeoparandus.eu/kontakt' },
+        },
+      ],
+    };
+
+    try {
+      const response = await fetch(DISCORD_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) throw new Error(`Discord vastas staatusega ${response.status}`);
+
+      recordSubmission();
+      form.reset();
+      updateOtherField();
+      messageCount.textContent = '0';
+      showStatus('success', 'Aitäh! Sinu päring on saadetud. Võtame sinuga ühendust esimesel võimalusel.');
+    } catch (error) {
+      console.error(error);
+      showStatus(
+        'error',
+        'Päringu saatmine ebaõnnestus. Palun proovi uuesti või kirjuta meile aadressil mfjeoparandus@gmail.com.'
+      );
+    } finally {
+      setSending(false);
+    }
+  });
+</script>

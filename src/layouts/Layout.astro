@@ -5,7 +5,7 @@ import SiteHeader from '../components/SiteHeader.astro';
 interface Props {
   title?: string;
   description?: string;
-  current: '/' | '/3dprinting';
+  current: '/' | '/3dprinting' | '/kontakt';
 }
 
 const {
@@ -29,7 +29,9 @@ const {
 	<body class="min-h-screen text-gray-100">
 		<div id="content" class="min-h-screen">
 			<SiteHeader current={current} />
-			<slot />
+			<main>
+				<slot />
+			</main>
 		</div>
 		<button id="theme-toggle" class="fixed bottom-4 right-4 z-50 flex h-10 w-10 items-center justify-center rounded-full bg-slate-700 text-gray-200 shadow-lg shadow-black/30 transition hover:bg-slate-600" aria-label="Lülita teemat">
 			<svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" class="hidden h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" /></svg>

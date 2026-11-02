@@ -1,6 +1,6 @@
 ---
 interface Props {
-  current: '/' | '/3dprinting';
+  current: '/' | '/3dprinting' | '/kontakt';
 }
 
 const { current } = Astro.props;
@@ -8,6 +8,7 @@ const { current } = Astro.props;
 const links = [
   { href: '/', label: 'Arvutiparandus' },
   { href: '/3dprinting', label: '3D Printimine' },
+  { href: '/kontakt', label: 'Kontakt' },
 ] as const;
 ---
 <header class="sticky top-0 z-40 border-b border-slate-800 bg-slate-900/80 backdrop-blur">
