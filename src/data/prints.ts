@@ -14,33 +14,26 @@ export interface Print {
 }
 
 export const prints: Print[] = [
-	{
-		slug: 'kb-clicker-fidget',
-		name: 'Clicker Fidget',
-		description: 'Nupuklõpsu järgi kujundatud rahustav käsitööas.',
-		price: 5.99,
-		image: clicker,
-	},
-	{
-		slug: 'gyro-fidget-spinner',
-		name: 'Gyro Fidget Spinner',
-		description: 'Tõmbekeskmega pöörlev mänguas, mida on mugav käes keerutada.',
-		price: 7.99,
-		image: gyrofidget,
-	},
-	{
-		slug: 'impossible-passthrough-cone',
-		name: 'Impossible Passthrough Cone',
-		description:
-			'Kaks koonuse kujuga detaili, mis keeramisel teineteise sisse minevad ja näivad läbivat tahket materjali.',
-		price: 13.99,
-		image: passthrucones,
-	},
-	{
-		slug: 'keychain-spinner',
-		name: 'Keychain Spinner',
-		description: 'Võtmehõljale kinnitatav pöörlev mänguas.',
-		price: 3.99,
-		image: keychainfidget,
-	},
+{
+	slug: 'mystery-box-small',
+	name: 'Mystery Box Small',
+	description: 'Väikses Mystery Boxis ootab sind üks mitmest erineva disainiga 3D-prinditud paat.',
+	price: 2.99,
+	image: clicker,
+},
+{
+	slug: 'mystery-box-medium',
+	name: 'Mystery Box Medium',
+	description: 'Keskmises Mystery Boxis ootab sind kaks erilisema disainiga või mitmevärviline 3D-prinditud paat.',
+	price: 4.99,
+	image: gyrofidget,
+},
+{
+	slug: 'mystery-box-big',
+	name: 'Mystery Box Big',
+	description: 'Suures Mystery Boxis ootab sind kolm 3D-prinditud paati.',
+	price: 5.99,
+	image: passthrucones,
+},
+
 ];
